@@ -5,24 +5,22 @@ set -e
 echo Building...
 
 
-# Make newest source available
+# Work from source directory
 mkdir -p ./.tmpfs/src
-cp -rf /host_mount/. ./.tmpfs/src/
+cd ./.tmpfs/src/
 
+
+# Make newest source available
+cp -rf /host_mount/. ./
 
 
 
 # Compile the PDF
-cd ./.tmpfs/src/
 latexmk -pdf main.tex
 
 
+# Put back the compiled PDF
 cp -f main.pdf /host_mount/
-
-cd /latex_compiler/
-
-
-
 
 
 echo Done!
