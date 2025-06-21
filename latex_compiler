@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+# This is the host-executable that is executed to start the compiler
+
+echo "Starting LaTeX Compiler..."
+
+
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
+export DOCKER_CLI_HINTS=false
+
+docker build --pull=false -t latex-compiler "$SCRIPT_DIR/src"
+
+docker run --rm -it \
+    --tmpfs /latex_compiler/.tmpfs:rw,size=4096m \
+    -v $1:/host_mount \
+    latex-compiler
+

@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+
+echo Building...
+
+
+# Make newest source available
+mkdir -p ./.tmpfs/src
+cp -rf /host_mount/. ./.tmpfs/src/
+
+
+
+
+# Compile the PDF
+cd ./.tmpfs/src/
+latexmk -pdf main.tex
+
+
+cp -f main.pdf /host_mount/
+
+cd /latex_compiler/
+
+
+
+
+
+echo Done!
