@@ -2,7 +2,7 @@
 set -e
 
 
-echo Building...
+echo "Building..."
 
 
 # Work from source directory
@@ -23,4 +23,4 @@ latexmk -pdf main.tex
 cp -f main.pdf /host_mount/
 
 
-echo Done!
+echo "Done!"
