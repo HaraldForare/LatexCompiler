@@ -7,7 +7,8 @@ echo "Starting LaTeX Compiler..."
 
 
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_PATH="$(readlink -f "$0")"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 
 
 export DOCKER_CLI_HINTS=false
