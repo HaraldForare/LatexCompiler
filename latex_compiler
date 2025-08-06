@@ -13,9 +13,9 @@ SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 
 export DOCKER_CLI_HINTS=false
 
-docker build --pull=false -t latex-compiler "$SCRIPT_DIR/src"
+podman build --pull=false -t latex-compiler "$SCRIPT_DIR/src"
 
-docker run --rm -it \
+podman run --rm -it \
     --tmpfs /latex_compiler/.tmpfs:rw,size=4096m \
     -v $1:/host_mount \
     latex-compiler

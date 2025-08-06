@@ -1,6 +1,6 @@
 
 
-FROM danteev/texlive:latest
+FROM docker.io/danteev/texlive:latest
 
 WORKDIR /latex_compiler
 
