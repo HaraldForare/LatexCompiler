@@ -17,6 +17,7 @@ podman build --pull=false -t latex-compiler "$SCRIPT_DIR/src"
 
 podman run --rm -it \
     --network none \
+    --cap-drop ALL \
     --tmpfs /latex_compiler/.tmpfs:rw,size=4096m \
     -v $1:/host_mount \
     latex-compiler
