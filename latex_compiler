@@ -11,8 +11,6 @@ SCRIPT_PATH="$(readlink -f "$0")"
 SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 
 
-export DOCKER_CLI_HINTS=false
-
 podman build --pull=false -t latex-compiler "$SCRIPT_DIR/src"
 
 podman run --rm -it \
